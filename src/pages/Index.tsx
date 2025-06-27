@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -85,24 +86,25 @@ const Index = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative h-[80vh]">
+      <section className="relative h-[60vh] sm:h-[70vh] lg:h-[80vh]">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/lovable-uploads/7f8d8925-f25a-400f-b81b-e86b0c777e94.png')`
+            backgroundImage: `url('/lovable-uploads/7f8d8925-f25a-400f-b81b-e86b0c777e94.png')`,
+            backgroundPosition: 'center 20%'
           }}
         ></div>
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 container mx-auto px-4 h-full flex items-center">
           <div className="max-w-2xl text-white">
-            <h1 className="text-5xl font-bold mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
               Discover Your Perfect Suit
             </h1>
-            <p className="text-xl mb-8 text-gray-200">
+            <p className="text-lg sm:text-xl mb-6 sm:mb-8 text-gray-200">
               Premium formal wear for men, women, and children. 
               Crafted with precision, designed for elegance.
             </p>
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-yellow-600 hover:bg-yellow-700 text-white">
                 Shop Collection
               </Button>
@@ -115,36 +117,36 @@ const Index = () => {
       </section>
 
       {/* Category Cards Section */}
-      <section className="py-16 container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-slate-900 mb-4">Shop by Category</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+      <section className="py-12 sm:py-16 container mx-auto px-4">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">Shop by Category</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
             Explore our curated collections of premium formal wear designed for every occasion
           </p>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {categories.map((category, index) => (
             <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
               <div className="relative overflow-hidden rounded-t-lg">
                 <img 
                   src={category.image} 
                   alt={category.title}
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-48 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-4 left-4 text-white">
                     {category.subcategories.map((sub, i) => (
-                      <Badge key={i} variant="secondary" className="mr-2 mb-2 bg-white/20 text-white border-white/30">
+                      <Badge key={i} variant="secondary" className="mr-2 mb-2 bg-white/20 text-white border-white/30 text-xs">
                         {sub}
                       </Badge>
                     ))}
                   </div>
                 </div>
               </div>
-              <CardHeader>
-                <CardTitle className="text-slate-900">{category.title}</CardTitle>
-                <CardDescription className="text-gray-600">{category.description}</CardDescription>
+              <CardHeader className="pb-4">
+                <CardTitle className="text-slate-900 text-lg sm:text-xl">{category.title}</CardTitle>
+                <CardDescription className="text-gray-600 text-sm">{category.description}</CardDescription>
               </CardHeader>
               <CardContent>
                 <Link to={category.link}>
@@ -159,45 +161,45 @@ const Index = () => {
       </section>
 
       {/* Featured Products */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-12 sm:py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">Featured Products</h2>
-            <p className="text-gray-600">Handpicked bestsellers from our premium collection</p>
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">Featured Products</h2>
+            <p className="text-gray-600 text-sm sm:text-base">Handpicked bestsellers from our premium collection</p>
           </div>
           
           <Carousel className="max-w-5xl mx-auto">
             <CarouselContent>
               {featuredProducts.map((product) => (
-                <CarouselItem key={product.id} className="md:basis-1/2 lg:basis-1/3">
+                <CarouselItem key={product.id} className="sm:basis-1/2 lg:basis-1/3">
                   <Card className="group hover:shadow-lg transition-shadow">
                     <div className="relative overflow-hidden rounded-t-lg">
                       <img 
                         src={product.image} 
                         alt={product.name}
-                        className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-64 sm:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                       />
-                      <Badge className="absolute top-3 left-3 bg-yellow-600 text-white">
+                      <Badge className="absolute top-3 left-3 bg-yellow-600 text-white text-xs">
                         {product.badge}
                       </Badge>
                     </div>
-                    <CardContent className="p-6">
-                      <h3 className="font-semibold text-slate-900 mb-2">{product.name}</h3>
+                    <CardContent className="p-4 sm:p-6">
+                      <h3 className="font-semibold text-slate-900 mb-2 text-sm sm:text-base">{product.name}</h3>
                       <div className="flex items-center gap-2 mb-3">
                         <div className="flex items-center text-yellow-500">
                           {[...Array(5)].map((_, i) => (
-                            <Star key={i} className={`w-4 h-4 ${i < Math.floor(product.rating) ? 'fill-current' : ''}`} />
+                            <Star key={i} className={`w-3 h-3 sm:w-4 sm:h-4 ${i < Math.floor(product.rating) ? 'fill-current' : ''}`} />
                           ))}
                         </div>
-                        <span className="text-sm text-gray-600">({product.rating})</span>
+                        <span className="text-xs sm:text-sm text-gray-600">({product.rating})</span>
                       </div>
                       <div className="flex items-center justify-between">
                         <div>
-                          <span className="text-2xl font-bold text-slate-900">${product.price}</span>
-                          <span className="text-gray-500 line-through ml-2">${product.originalPrice}</span>
+                          <span className="text-lg sm:text-2xl font-bold text-slate-900">${product.price}</span>
+                          <span className="text-gray-500 line-through ml-2 text-sm">${product.originalPrice}</span>
                         </div>
                         <Link to={`/product/${product.id}`}>
-                          <Button size="sm" className="bg-slate-900 hover:bg-slate-800">
+                          <Button size="sm" className="bg-slate-900 hover:bg-slate-800 text-xs sm:text-sm">
                             View Details
                           </Button>
                         </Link>
@@ -207,56 +209,56 @@ const Index = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <CarouselPrevious className="hidden sm:flex" />
+            <CarouselNext className="hidden sm:flex" />
           </Carousel>
         </div>
       </section>
 
       {/* Trust Indicators */}
-      <section className="py-16 container mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-8 text-center">
+      <section className="py-12 sm:py-16 container mx-auto px-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
           <div className="flex flex-col items-center">
-            <Shield className="w-12 h-12 text-yellow-600 mb-4" />
-            <h3 className="font-semibold text-slate-900 mb-2">Quality Guarantee</h3>
-            <p className="text-gray-600 text-sm">Premium materials and expert craftsmanship</p>
+            <Shield className="w-8 h-8 sm:w-12 sm:h-12 text-yellow-600 mb-3 sm:mb-4" />
+            <h3 className="font-semibold text-slate-900 mb-2 text-sm sm:text-base">Quality Guarantee</h3>
+            <p className="text-gray-600 text-xs sm:text-sm">Premium materials and expert craftsmanship</p>
           </div>
           <div className="flex flex-col items-center">
-            <Truck className="w-12 h-12 text-yellow-600 mb-4" />
-            <h3 className="font-semibold text-slate-900 mb-2">Free Shipping</h3>
-            <p className="text-gray-600 text-sm">On orders over $500 worldwide</p>
+            <Truck className="w-8 h-8 sm:w-12 sm:h-12 text-yellow-600 mb-3 sm:mb-4" />
+            <h3 className="font-semibold text-slate-900 mb-2 text-sm sm:text-base">Free Shipping</h3>
+            <p className="text-gray-600 text-xs sm:text-sm">On orders over $500 worldwide</p>
           </div>
           <div className="flex flex-col items-center">
-            <RefreshCw className="w-12 h-12 text-yellow-600 mb-4" />
-            <h3 className="font-semibold text-slate-900 mb-2">Easy Returns</h3>
-            <p className="text-gray-600 text-sm">30-day hassle-free return policy</p>
+            <RefreshCw className="w-8 h-8 sm:w-12 sm:h-12 text-yellow-600 mb-3 sm:mb-4" />
+            <h3 className="font-semibold text-slate-900 mb-2 text-sm sm:text-base">Easy Returns</h3>
+            <p className="text-gray-600 text-xs sm:text-sm">30-day hassle-free return policy</p>
           </div>
           <div className="flex flex-col items-center">
-            <User className="w-12 h-12 text-yellow-600 mb-4" />
-            <h3 className="font-semibold text-slate-900 mb-2">Personal Styling</h3>
-            <p className="text-gray-600 text-sm">Expert advice and custom fitting</p>
+            <User className="w-8 h-8 sm:w-12 sm:h-12 text-yellow-600 mb-3 sm:mb-4" />
+            <h3 className="font-semibold text-slate-900 mb-2 text-sm sm:text-base">Personal Styling</h3>
+            <p className="text-gray-600 text-xs sm:text-sm">Expert advice and custom fitting</p>
           </div>
         </div>
       </section>
 
       {/* Customer Testimonials */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-12 sm:py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">What Our Customers Say</h2>
-            <p className="text-gray-600">Trusted by thousands of satisfied customers worldwide</p>
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">What Our Customers Say</h2>
+            <p className="text-gray-600 text-sm sm:text-base">Trusted by thousands of satisfied customers worldwide</p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="text-center p-6">
+              <Card key={index} className="text-center p-4 sm:p-6">
                 <div className="flex justify-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
+                    <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-500 fill-current" />
                   ))}
                 </div>
-                <p className="text-gray-600 mb-4 italic">"{testimonial.comment}"</p>
-                <p className="font-semibold text-slate-900">{testimonial.name}</p>
+                <p className="text-gray-600 mb-4 italic text-sm sm:text-base">"{testimonial.comment}"</p>
+                <p className="font-semibold text-slate-900 text-sm sm:text-base">{testimonial.name}</p>
               </Card>
             ))}
           </div>
