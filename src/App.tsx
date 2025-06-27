@@ -15,6 +15,15 @@ import AdminProducts from "./pages/admin/AdminProducts";
 import AdminCategories from "./pages/admin/AdminCategories";
 import AdminPromotions from "./pages/admin/AdminPromotions";
 import AdminOrders from "./pages/admin/AdminOrders";
+import CorporateSuits from "./pages/mens/CorporateSuits";
+import WeddingSuits from "./pages/mens/WeddingSuits";
+import PromSuits from "./pages/mens/PromSuits";
+import ThreePieceSuits from "./pages/mens/ThreePieceSuits";
+import Accessories from "./pages/mens/Accessories";
+import Blazers from "./pages/mens/Blazers";
+import FormalTrousers from "./pages/mens/FormalTrousers";
+import TiesAccessories from "./pages/mens/TiesAccessories";
+import FormalShoes from "./pages/mens/FormalShoes";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +36,15 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/mens" element={<MensCategory />} />
+          <Route path="/mens/corporate-suits" element={<CorporateSuits />} />
+          <Route path="/mens/wedding-suits" element={<WeddingSuits />} />
+          <Route path="/mens/prom-suits" element={<PromSuits />} />
+          <Route path="/mens/three-piece-suits" element={<ThreePieceSuits />} />
+          <Route path="/mens/accessories" element={<Accessories />} />
+          <Route path="/mens/blazers" element={<Blazers />} />
+          <Route path="/mens/formal-trousers" element={<FormalTrousers />} />
+          <Route path="/mens/ties-accessories" element={<TiesAccessories />} />
+          <Route path="/mens/formal-shoes" element={<FormalShoes />} />
           <Route path="/womens" element={<WomensCategory />} />
           <Route path="/childrens" element={<ChildrensCategory />} />
           <Route path="/product/:id" element={<ProductDetail />} />
