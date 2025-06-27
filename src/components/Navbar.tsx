@@ -57,19 +57,51 @@ const Navbar = () => {
                       <div>
                         <h4 className="font-medium text-slate-900 mb-3">Suits</h4>
                         <ul className="space-y-2 text-sm">
-                          <li><NavigationMenuLink className="text-gray-600 hover:text-slate-900">Corporate Suits</NavigationMenuLink></li>
-                          <li><NavigationMenuLink className="text-gray-600 hover:text-slate-900">Wedding Suits</NavigationMenuLink></li>
-                          <li><NavigationMenuLink className="text-gray-600 hover:text-slate-900">Prom Suits</NavigationMenuLink></li>
-                          <li><NavigationMenuLink className="text-gray-600 hover:text-slate-900">Three-Piece Suits</NavigationMenuLink></li>
+                          <li>
+                            <Link to="/mens/corporate-suits" className="text-gray-600 hover:text-slate-900 block">
+                              Corporate Suits
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/mens/wedding-suits" className="text-gray-600 hover:text-slate-900 block">
+                              Wedding Suits
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/mens/prom-suits" className="text-gray-600 hover:text-slate-900 block">
+                              Prom Suits
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/mens/three-piece-suits" className="text-gray-600 hover:text-slate-900 block">
+                              Three-Piece Suits
+                            </Link>
+                          </li>
                         </ul>
                       </div>
                       <div>
                         <h4 className="font-medium text-slate-900 mb-3">Accessories</h4>
                         <ul className="space-y-2 text-sm">
-                          <li><NavigationMenuLink className="text-gray-600 hover:text-slate-900">Blazers</NavigationMenuLink></li>
-                          <li><NavigationMenuLink className="text-gray-600 hover:text-slate-900">Formal Trousers</NavigationMenuLink></li>
-                          <li><NavigationMenuLink className="text-gray-600 hover:text-slate-900">Ties & Accessories</NavigationMenuLink></li>
-                          <li><NavigationMenuLink className="text-gray-600 hover:text-slate-900">Formal Shoes</NavigationMenuLink></li>
+                          <li>
+                            <Link to="/mens/blazers" className="text-gray-600 hover:text-slate-900 block">
+                              Blazers
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/mens/formal-trousers" className="text-gray-600 hover:text-slate-900 block">
+                              Formal Trousers
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/mens/ties-accessories" className="text-gray-600 hover:text-slate-900 block">
+                              Ties & Accessories
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/mens/formal-shoes" className="text-gray-600 hover:text-slate-900 block">
+                              Formal Shoes
+                            </Link>
+                          </li>
                         </ul>
                       </div>
                     </div>
@@ -85,19 +117,51 @@ const Navbar = () => {
                       <div>
                         <h4 className="font-medium text-slate-900 mb-3">Suits</h4>
                         <ul className="space-y-2 text-sm">
-                          <li><NavigationMenuLink className="text-gray-600 hover:text-slate-900">Business Suits</NavigationMenuLink></li>
-                          <li><NavigationMenuLink className="text-gray-600 hover:text-slate-900">Wedding Suits</NavigationMenuLink></li>
-                          <li><NavigationMenuLink className="text-gray-600 hover:text-slate-900">Cocktail Suits</NavigationMenuLink></li>
-                          <li><NavigationMenuLink className="text-gray-600 hover:text-slate-900">Skirt Suits</NavigationMenuLink></li>
+                          <li>
+                            <Link to="/womens" className="text-gray-600 hover:text-slate-900 block">
+                              Business Suits
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/womens" className="text-gray-600 hover:text-slate-900 block">
+                              Wedding Suits
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/womens" className="text-gray-600 hover:text-slate-900 block">
+                              Cocktail Suits
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/womens" className="text-gray-600 hover:text-slate-900 block">
+                              Skirt Suits
+                            </Link>
+                          </li>
                         </ul>
                       </div>
                       <div>
                         <h4 className="font-medium text-slate-900 mb-3">Collection</h4>
                         <ul className="space-y-2 text-sm">
-                          <li><NavigationMenuLink className="text-gray-600 hover:text-slate-900">Blazer Sets</NavigationMenuLink></li>
-                          <li><NavigationMenuLink className="text-gray-600 hover:text-slate-900">Formal Dresses</NavigationMenuLink></li>
-                          <li><NavigationMenuLink className="text-gray-600 hover:text-slate-900">Accessories</NavigationMenuLink></li>
-                          <li><NavigationMenuLink className="text-gray-600 hover:text-slate-900">Formal Shoes</NavigationMenuLink></li>
+                          <li>
+                            <Link to="/womens" className="text-gray-600 hover:text-slate-900 block">
+                              Blazer Sets
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/womens" className="text-gray-600 hover:text-slate-900 block">
+                              Formal Dresses
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/womens" className="text-gray-600 hover:text-slate-900 block">
+                              Accessories
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/womens" className="text-gray-600 hover:text-slate-900 block">
+                              Formal Shoes
+                            </Link>
+                          </li>
                         </ul>
                       </div>
                     </div>

@@ -13,21 +13,21 @@ const Index = () => {
     {
       title: "Men's Suits",
       description: "Premium business and formal wear",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop",
+      image: "/lovable-uploads/5d12746d-303b-4d2d-a907-6f90e1c02933.png",
       link: "/mens",
       subcategories: ["Corporate Suits", "Wedding Suits", "Blazers"]
     },
     {
       title: "Women's Suits",
       description: "Professional and elegant collections",
-      image: "https://images.unsplash.com/photo-1594736797933-d0dec65ba2ac?w=400&h=600&fit=crop",
+      image: "/lovable-uploads/2fd4c19b-518b-46cb-8715-afec72c8925d.png",
       link: "/womens",
       subcategories: ["Business Suits", "Cocktail Suits", "Formal Dresses"]
     },
     {
       title: "Children's Suits",
       description: "Special occasion formal wear",
-      image: "https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?w=400&h=600&fit=crop",
+      image: "/lovable-uploads/16c9f47a-5c33-438e-9ef7-159fd5679029.png",
       link: "/childrens",
       subcategories: ["Boys' Suits", "Girls' Suits", "Wedding Party"]
     }
@@ -39,7 +39,7 @@ const Index = () => {
       name: "Executive Navy Suit",
       price: 599,
       originalPrice: 799,
-      image: "https://images.unsplash.com/photo-1594736797933-d0dec65ba2ac?w=300&h=400&fit=crop",
+      image: "/lovable-uploads/4ba80d39-2697-438c-9ed7-86f8311f2935.png",
       rating: 4.8,
       badge: "Best Seller"
     },
@@ -48,7 +48,7 @@ const Index = () => {
       name: "Classic Charcoal Blazer",
       price: 349,
       originalPrice: 449,
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop",
+      image: "/lovable-uploads/301108ce-641b-41ae-9c86-23ef3a068aac.png",
       rating: 4.9,
       badge: "New Arrival"
     },
@@ -57,7 +57,7 @@ const Index = () => {
       name: "Wedding Three-Piece",
       price: 899,
       originalPrice: 1199,
-      image: "https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?w=300&h=400&fit=crop",
+      image: "/lovable-uploads/0a33b8bd-fc15-4411-ab2a-42148e84048b.png",
       rating: 5.0,
       badge: "Premium"
     }
