@@ -1,5 +1,6 @@
-
+import { useState } from "react";
 import AdminLayout from "@/components/admin/AdminLayout";
+import PromotionForm from "@/components/admin/PromotionForm";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -7,6 +8,8 @@ import { Plus, Edit, Trash2, Tag, Calendar, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const AdminPromotions = () => {
+  const [showPromotionForm, setShowPromotionForm] = useState(false);
+
   const promotions = [
     {
       id: 1,
@@ -62,7 +65,10 @@ const AdminPromotions = () => {
                 View Sales Page
               </Button>
             </Link>
-            <Button className="bg-slate-900 hover:bg-slate-800">
+            <Button 
+              className="bg-slate-900 hover:bg-slate-800"
+              onClick={() => setShowPromotionForm(true)}
+            >
               <Plus className="w-4 h-4 mr-2" />
               Create Promotion
             </Button>
@@ -128,6 +134,11 @@ const AdminPromotions = () => {
           ))}
         </div>
       </div>
+
+      <PromotionForm 
+        open={showPromotionForm} 
+        onOpenChange={setShowPromotionForm} 
+      />
     </AdminLayout>
   );
 };

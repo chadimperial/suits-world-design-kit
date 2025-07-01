@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -19,10 +18,12 @@ import {
   Save
 } from "lucide-react";
 import AdminLayout from "@/components/admin/AdminLayout";
+import ProductForm from "@/components/admin/ProductForm";
 
 const AdminProducts = () => {
   const [activeTab, setActiveTab] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
+  const [showProductForm, setShowProductForm] = useState(false);
 
   const products = [
     {
@@ -94,7 +95,10 @@ const AdminProducts = () => {
             <h1 className="text-3xl font-bold text-slate-900">Products</h1>
             <p className="text-gray-600">Manage your product catalog and inventory</p>
           </div>
-          <Button className="bg-slate-900 hover:bg-slate-800">
+          <Button 
+            className="bg-slate-900 hover:bg-slate-800"
+            onClick={() => setShowProductForm(true)}
+          >
             <Plus className="w-4 h-4 mr-2" />
             Add New Product
           </Button>
@@ -246,71 +250,15 @@ const AdminProducts = () => {
                 <CardDescription>Create a new product in your catalog</CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-4">
-                    <div>
-                      <Label htmlFor="product-name">Product Name</Label>
-                      <Input id="product-name" placeholder="Enter product name" />
-                    </div>
-                    <div>
-                      <Label htmlFor="product-sku">SKU</Label>
-                      <Input id="product-sku" placeholder="SW-XXX-001" />
-                    </div>
-                    <div>
-                      <Label htmlFor="product-category">Category</Label>
-                      <Select>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select category" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="mens-suits">Men's Suits</SelectItem>
-                          <SelectItem value="womens-suits">Women's Suits</SelectItem>
-                          <SelectItem value="childrens-suits">Children's Suits</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <Label htmlFor="product-price">Price ($)</Label>
-                        <Input id="product-price" type="number" placeholder="599.00" />
-                      </div>
-                      <div>
-                        <Label htmlFor="product-stock">Initial Stock</Label>
-                        <Input id="product-stock" type="number" placeholder="50" />
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-4">
-                    <div>
-                      <Label>Product Images</Label>
-                      <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
-                        <Upload className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                        <p className="text-gray-600 mb-2">Drag & drop images here</p>
-                        <Button variant="outline" size="sm">
-                          Choose Files
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <Label htmlFor="product-description">Description</Label>
-                  <textarea 
-                    id="product-description"
-                    className="w-full min-h-[120px] p-3 border border-gray-300 rounded-md resize-vertical"
-                    placeholder="Enter detailed product description..."
-                  />
-                </div>
-
-                <div className="flex gap-4">
-                  <Button className="bg-slate-900 hover:bg-slate-800">
-                    <Save className="w-4 h-4 mr-2" />
-                    Save Product
-                  </Button>
-                  <Button variant="outline">
-                    Save as Draft
+                <div className="text-center py-8">
+                  <Package className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+                  <p className="text-gray-600 mb-4">Use the "Add New Product" button to create products</p>
+                  <Button 
+                    className="bg-slate-900 hover:bg-slate-800"
+                    onClick={() => setShowProductForm(true)}
+                  >
+                    <Plus className="w-4 h-4 mr-2" />
+                    Open Product Form
                   </Button>
                 </div>
               </CardContent>
@@ -348,6 +296,11 @@ const AdminProducts = () => {
           </TabsContent>
         </Tabs>
       </div>
+
+      <ProductForm 
+        open={showProductForm} 
+        onOpenChange={setShowProductForm} 
+      />
     </AdminLayout>
   );
 };

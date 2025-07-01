@@ -1,11 +1,15 @@
 
+import { useState } from "react";
 import AdminLayout from "@/components/admin/AdminLayout";
+import CategoryForm from "@/components/admin/CategoryForm";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Plus, Edit, Trash2, Package } from "lucide-react";
 
 const AdminCategories = () => {
+  const [showCategoryForm, setShowCategoryForm] = useState(false);
+
   const categories = [
     {
       id: 1,
@@ -41,7 +45,10 @@ const AdminCategories = () => {
             <h1 className="text-3xl font-bold text-slate-900">Categories</h1>
             <p className="text-gray-600">Manage product categories and organization</p>
           </div>
-          <Button className="bg-slate-900 hover:bg-slate-800">
+          <Button 
+            className="bg-slate-900 hover:bg-slate-800"
+            onClick={() => setShowCategoryForm(true)}
+          >
             <Plus className="w-4 h-4 mr-2" />
             Add Category
           </Button>
@@ -82,6 +89,11 @@ const AdminCategories = () => {
           ))}
         </div>
       </div>
+
+      <CategoryForm 
+        open={showCategoryForm} 
+        onOpenChange={setShowCategoryForm} 
+      />
     </AdminLayout>
   );
 };
