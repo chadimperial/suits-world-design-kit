@@ -21,19 +21,6 @@ const Navbar = () => {
 
   return (
     <nav className="bg-white shadow-sm border-b sticky top-0 z-50">
-      {/* Top Bar - Hidden on mobile */}
-      <div className="bg-slate-900 text-white py-2 hidden md:block">
-        <div className="container mx-auto px-4 flex justify-between items-center text-sm">
-          <span>Free shipping on orders over $500 | Custom tailoring available</span>
-          <div className="flex items-center gap-4">
-            <Link to="/admin" className="hover:text-yellow-400 transition-colors">
-              Admin Portal
-            </Link>
-            <span>Call: 1-800-SUITS-01</span>
-          </div>
-        </div>
-      </div>
-
       {/* Main Navigation */}
       <div className="container mx-auto px-4 py-3 lg:py-4">
         <div className="flex items-center justify-between">
@@ -181,9 +168,11 @@ const Navbar = () => {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <NavigationMenuLink className="text-slate-900 hover:text-slate-700 px-4 py-2">
-                    Sale
-                  </NavigationMenuLink>
+                  <Link to="/sale">
+                    <NavigationMenuLink className="text-slate-900 hover:text-slate-700 px-4 py-2">
+                      Sale
+                    </NavigationMenuLink>
+                  </Link>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
@@ -284,9 +273,9 @@ const Navbar = () => {
                     </div>
 
                     <div>
-                      <span className="font-semibold text-slate-900 hover:text-slate-700 block cursor-pointer">
+                      <Link to="/sale" className="font-semibold text-slate-900 hover:text-slate-700 block" onClick={() => setIsMobileMenuOpen(false)}>
                         Sale
-                      </span>
+                      </Link>
                     </div>
                   </div>
 
@@ -298,9 +287,8 @@ const Navbar = () => {
                     </Button>
                   </div>
 
-                  {/* Contact Info */}
+                  {/* Admin Portal Link */}
                   <div className="border-t pt-4 text-sm text-gray-600">
-                    <p>Call: 1-800-SUITS-01</p>
                     <Link to="/admin" className="text-slate-900 hover:text-yellow-600 transition-colors">
                       Admin Portal
                     </Link>
