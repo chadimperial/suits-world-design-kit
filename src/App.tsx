@@ -10,6 +10,7 @@ import MensCategory from "./pages/MensCategory";
 import WomensCategory from "./pages/WomensCategory";
 import ChildrensCategory from "./pages/ChildrensCategory";
 import ProductDetail from "./pages/ProductDetail";
+import Sale from "./pages/Sale";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminProducts from "./pages/admin/AdminProducts";
 import AdminCategories from "./pages/admin/AdminCategories";
@@ -47,6 +48,7 @@ const App = () => (
           <Route path="/mens/formal-shoes" element={<FormalShoes />} />
           <Route path="/womens" element={<WomensCategory />} />
           <Route path="/childrens" element={<ChildrensCategory />} />
+          <Route path="/sale" element={<Sale />} />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/products" element={<AdminProducts />} />

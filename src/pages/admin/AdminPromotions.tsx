@@ -3,7 +3,8 @@ import AdminLayout from "@/components/admin/AdminLayout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Plus, Edit, Trash2, Tag, Calendar } from "lucide-react";
+import { Plus, Edit, Trash2, Tag, Calendar, ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const AdminPromotions = () => {
   const promotions = [
@@ -54,10 +55,18 @@ const AdminPromotions = () => {
             <h1 className="text-3xl font-bold text-slate-900">Promotions</h1>
             <p className="text-gray-600">Manage discounts and promotional campaigns</p>
           </div>
-          <Button className="bg-slate-900 hover:bg-slate-800">
-            <Plus className="w-4 h-4 mr-2" />
-            Create Promotion
-          </Button>
+          <div className="flex gap-3">
+            <Link to="/sale">
+              <Button variant="outline" className="border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white">
+                <ExternalLink className="w-4 h-4 mr-2" />
+                View Sales Page
+              </Button>
+            </Link>
+            <Button className="bg-slate-900 hover:bg-slate-800">
+              <Plus className="w-4 h-4 mr-2" />
+              Create Promotion
+            </Button>
+          </div>
         </div>
 
         <div className="grid gap-6">
