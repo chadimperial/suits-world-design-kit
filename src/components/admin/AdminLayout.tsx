@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useAdminAuth } from "@/hooks/useAdminAuth";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { 
@@ -23,6 +24,7 @@ interface AdminLayoutProps {
 const AdminLayout = ({ children }: AdminLayoutProps) => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const location = useLocation();
+  const { adminLogout } = useAdminAuth();
 
   const navigation = [
     { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
@@ -114,7 +116,11 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
 
             {sidebarOpen && (
               <div className="mt-8 pt-6 border-t">
-                <Button variant="ghost" className="w-full justify-start text-gray-600 hover:text-gray-900">
+                <Button 
+                  variant="ghost" 
+                  className="w-full justify-start text-gray-600 hover:text-gray-900"
+                  onClick={adminLogout}
+                >
                   <LogOut className="mr-3 h-5 w-5" />
                   Sign Out
                 </Button>

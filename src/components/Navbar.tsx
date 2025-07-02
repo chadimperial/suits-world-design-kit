@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { 
@@ -12,12 +13,13 @@ import {
   NavigationMenuTrigger 
 } from "@/components/ui/navigation-menu";
 import { Input } from "@/components/ui/input";
-import { Search, User, ShoppingBag, Menu, X } from "lucide-react";
+import { Search, User, ShoppingBag, Menu, X, LogOut } from "lucide-react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 
 const Navbar = () => {
   const [cartItems] = useState(3);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { user, signOut } = useAuth();
 
   return (
     <nav className="bg-white shadow-sm border-b sticky top-0 z-50">
@@ -190,9 +192,18 @@ const Navbar = () => {
 
             {/* User Actions */}
             <div className="flex items-center space-x-2">
-              <Button variant="ghost" size="sm" className="text-slate-900">
-                <User className="w-5 h-5" />
-              </Button>
+              {user ? (
+                <Button variant="ghost" size="sm" onClick={signOut} className="text-slate-900">
+                  <LogOut className="w-4 h-4 mr-2" />
+                  Sign Out
+                </Button>
+              ) : (
+                <Link to="/auth">
+                  <Button variant="ghost" size="sm" className="text-slate-900">
+                    <User className="w-5 h-5" />
+                  </Button>
+                </Link>
+              )}
               <Button variant="ghost" size="sm" className="text-slate-900 relative">
                 <ShoppingBag className="w-5 h-5" />
                 {cartItems > 0 && (
@@ -280,17 +291,25 @@ const Navbar = () => {
                   </div>
 
                   {/* User Account */}
-                  <div className="border-t pt-4">
-                    <Button variant="ghost" className="w-full justify-start text-slate-900">
-                      <User className="w-5 h-5 mr-2" />
-                      My Account
-                    </Button>
-                  </div>
-
-                  {/* Admin Portal Link */}
-                  <div className="border-t pt-4 text-sm text-gray-600">
-                    <Link to="/admin" className="text-slate-900 hover:text-yellow-600 transition-colors">
-                      Admin Portal
+                  <div className="border-t pt-4 space-y-2">
+                    {user ? (
+                      <Button variant="ghost" className="w-full justify-start text-slate-900" onClick={signOut}>
+                        <LogOut className="w-5 h-5 mr-2" />
+                        Sign Out
+                      </Button>
+                    ) : (
+                      <Link to="/auth" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Button variant="ghost" className="w-full justify-start text-slate-900">
+                          <User className="w-5 h-5 mr-2" />
+                          Sign In
+                        </Button>
+                      </Link>
+                    )}
+                    
+                    <Link to="/admin/login" onClick={() => setIsMobileMenuOpen(false)}>
+                      <Button variant="ghost" className="w-full justify-start text-slate-900">
+                        Admin Portal
+                      </Button>
                     </Link>
                   </div>
                 </div>

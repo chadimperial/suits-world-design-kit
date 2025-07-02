@@ -7,6 +7,8 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
+import { useState } from "react";
+import { toast } from "sonner";
 import { 
   Settings, 
   Store, 
@@ -22,6 +24,30 @@ import {
 } from "lucide-react";
 
 const AdminSettings = () => {
+  const [newUsername, setNewUsername] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const handleUpdateCredentials = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (newPassword !== confirmPassword) {
+      toast.error("Passwords do not match");
+      return;
+    }
+
+    if (newPassword.length < 6) {
+      toast.error("Password must be at least 6 characters long");
+      return;
+    }
+
+    // In a real app, this would update the database
+    toast.success("Admin credentials updated successfully");
+    setNewUsername("");
+    setNewPassword("");
+    setConfirmPassword("");
+  };
+
   return (
     <AdminLayout>
       <div className="space-y-8">
@@ -37,13 +63,14 @@ const AdminSettings = () => {
         </div>
 
         <Tabs defaultValue="general" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-2 lg:grid-cols-6">
+          <TabsList className="grid w-full grid-cols-2 lg:grid-cols-7">
             <TabsTrigger value="general">General</TabsTrigger>
             <TabsTrigger value="notifications">Notifications</TabsTrigger>
             <TabsTrigger value="payments">Payments</TabsTrigger>
             <TabsTrigger value="shipping">Shipping</TabsTrigger>
             <TabsTrigger value="security">Security</TabsTrigger>
             <TabsTrigger value="integrations">Integrations</TabsTrigger>
+            <TabsTrigger value="admin">Admin</TabsTrigger>
           </TabsList>
 
           {/* General Settings */}
@@ -373,6 +400,59 @@ const AdminSettings = () => {
                     <Badge className="bg-green-100 text-green-800">Connected</Badge>
                   </div>
                 </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* Admin Credentials */}
+          <TabsContent value="admin" className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <Shield className="w-5 h-5 mr-2" />
+                  Admin Credentials
+                </CardTitle>
+                <CardDescription>Update admin login credentials</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleUpdateCredentials} className="space-y-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="new-username">New Username</Label>
+                    <Input
+                      id="new-username"
+                      type="text"
+                      value={newUsername}
+                      onChange={(e) => setNewUsername(e.target.value)}
+                      placeholder="Enter new username (current: admin)"
+                      required
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="new-password">New Password</Label>
+                    <Input
+                      id="new-password"
+                      type="password"
+                      value={newPassword}
+                      onChange={(e) => setNewPassword(e.target.value)}
+                      placeholder="Enter new password"
+                      required
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="confirm-password">Confirm Password</Label>
+                    <Input
+                      id="confirm-password"
+                      type="password"
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      placeholder="Confirm new password"
+                      required
+                    />
+                  </div>
+                  <Button type="submit" className="bg-slate-900 hover:bg-slate-800">
+                    Update Credentials
+                  </Button>
+                </form>
               </CardContent>
             </Card>
           </TabsContent>
